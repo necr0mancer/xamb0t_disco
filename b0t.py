@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 # Discord bot token
 load_dotenv()
 TOKEN: Final[str] = os.getenv('DISCORD_TOKEN')
-#TOKEN = 'NDc3OTc2MjA5OTY0NDAwNjQw.GMhm4f.HJHFXFXid_bA2pu0myupgnT5JWJpXM7ROH5AKs'
 
 # Intents
 #intents = discord.Intents.default()
