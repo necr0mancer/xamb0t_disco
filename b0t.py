@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 # Discord bot token
 load_dotenv()
 TOKEN: Final[str] = os.getenv('DISCORD_TOKEN')
+#TOKEN = 'NDc3OTc2MjA5OTY0NDAwNjQw.GMhm4f.HJHFXFXid_bA2pu0myupgnT5JWJpXM7ROH5AKs'
 
 # Intents
 #intents = discord.Intents.default()
@@ -42,16 +43,18 @@ conn.commit()
 
 # Define role thresholds
 role_thresholds = {
-    "Role1": 1,
-    "Role2": 2,
-    "Role3": 10,
+    "Common": 1,
+    "Rare": 5,
+    "Majestic": 50,
+    "Legendary": 100,
+    "Fabled": 2000,
     # Add or adjust roles and thresholds as needed
 }
 
 # Function to update user roles based on message count
 async def update_roles():
     # guild = bot.get_guild(GUILD_ID)  # Replace GUILD_ID with your guild's ID
-    guild = bot.get_guild(443419988892844032)
+    guild = bot.get_guild(1040160227389091872)
     for member in guild.members:
         # Get message count from the database
         c.execute("SELECT message_count FROM user_activity WHERE user_id=?", (str(member.id),))
