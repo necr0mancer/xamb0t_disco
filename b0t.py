@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 # Discord bot token
 load_dotenv()
 TOKEN: Final[str] = os.getenv('DISCORD_TOKEN')
-#TOKEN = 'NDc3OTc2MjA5OTY0NDAwNjQw.GMhm4f.HJHFXFXid_bA2pu0myupgnT5JWJpXM7ROH5AKs'
 
 # Intents
 #intents = discord.Intents.default()
@@ -66,7 +65,7 @@ async def update_roles():
         # Update message count for the current month
         message_count_current_month = 0
         for channel in guild.text_channels:
-            async for message in channel.history(limit=None, after=datetime.datetime.utcnow() - datetime.timedelta(days=1)):
+            async for message in channel.history(limit=None, after=datetime.datetime.utcnow() - datetime.timedelta(days=30)):
             # async for message in channel.history(limit=None, after=datetime.datetime.utcnow() - datetime.timedelta(days=1)).flatten():
                 # if message.author == member:
                 if message.author == member and str(message.id) not in get_counted_message_ids():
@@ -116,13 +115,13 @@ async def update_roles_loop():
     while True:
         await update_roles()
         # await asyncio.sleep(3600)  # Update every hour (adjust as needed)
-        await asyncio.sleep(60) # update every $x seconds
+        await asyncio.sleep(300) # update every $x seconds
 
 # background task to clean up outdates message IDs from db
 async def delete_outdated_message_ids_loop():
     while True:
         delete_outdated_message_ids()
-        await asyncio.sleep(3600) # cleanup every hour
+        await asyncio.sleep(86400) # cleanup every day
 
 # Run the bot
 bot.run(TOKEN)
