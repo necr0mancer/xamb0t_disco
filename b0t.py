@@ -43,9 +43,10 @@ conn.commit()
 # Define role thresholds
 role_thresholds = {
     "Common": 1,
-    "Rare": 5,
-    "Majestic": 50,
-    "Legendary": 100,
+    "Rare": 25,
+    "Majestic": 70,
+    "Legendary": 150,
+    "Marvel": 300,
     "Fabled": 2000,
     # Add or adjust roles and thresholds as needed
 }
