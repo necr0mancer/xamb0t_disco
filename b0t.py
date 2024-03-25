@@ -46,8 +46,8 @@ role_thresholds = {
     "Rare": 25,
     "Majestic": 70,
     "Legendary": 150,
-    "Marvel": 300,
-    "Fabled": 2000,
+    "Marvel": 500,
+    "Fabled": 1500,
     # Add or adjust roles and thresholds as needed
 }
 
